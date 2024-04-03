@@ -1,0 +1,31 @@
+#one {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#map {
+	height: 555px;
+	width: 80%;
+}
+
+#direccion-inputs {
+	padding: 15px;
+}
+
+.direccion {
+	margin-bottom: 5px;
+}
+
+::placeholder {
+	font-size: 18px;
+}
+
+.checklist {
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+}

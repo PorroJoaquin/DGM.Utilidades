@@ -1,0 +1,22 @@
+#one {
+	padding: 0 2.5rem;
+	margin: 0 auto !important;
+	width: 100%;
+	max-width: 68em;
+}
+
+#map {
+	padding: 0 2.5rem;
+	margin: 0 auto !important;
+	width: 100%;
+	max-width: 68em;
+
+	height: auto;
+	min-height: 285px;
+}
+
+.subhead {
+	/* text-transform: none; */
+	letter-spacing: 0.187rem;
+	margin-top: 1.4rem;
+}
