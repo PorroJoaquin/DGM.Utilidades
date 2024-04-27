@@ -94,10 +94,10 @@
 				<br>
 				<div class="checklist">
 					<input type="radio" id="Chico" name="utilitario" value="C" checked>
-					<label for="camioneta">Pequeño</label><br>
+					<label for="Chico">Pequeño</label><br>
 
 					<input type="radio" id="Mediano" name="utilitario" value="M">
-					<label for="css">Mediano</label><br>
+					<label for="Mediano">Mediano</label><br>
 
 				</div>
 				<br>
@@ -112,8 +112,7 @@
 				</div>
 				<br>
 				<br>
-				<button id="calcular-distancia" onclick="calcular_distancia()">Calcular</button> let utilitario = "C";
-				let explosivo = false;
+				<button id="calcular-distancia" onclick="calcular_distancia()">Calcular</button>
 				<br><br><br>
 				<div id="map"></div>
 				<div> </div>
@@ -132,24 +131,32 @@
 								<td id="output-distancia"></td>
 							</tr>
 							<tr>
+								<td>Distancia Zona 1</td>
+								<td id="output-zona-1"></td>
+							</tr>
+							<tr>
+								<td>Distancia Zona 2</td>
+								<td id="output-zona-2"></td>
+							</tr>
+							<tr>
 								<td>Recorrido</td>
-								<td></td>
+								<td id="recorrido"></td>
 							</tr>
 							<tr>
 								<td>Choferes</td>
-								<td>29.99</td>
+								<td id="choferes"></td>
 							</tr>
 							<tr>
 								<td>Precio en Dolares</td>
-								<td>19.99</td>
+								<td id="costo-dolares"></td>
 							</tr>
 							<tr>
 								<td>Tipo de Cambio</td>
-								<td>29.99</td>
+								<td id="tipo-de-cambio"></td>
 							</tr>
 							<tr>
 								<td>Precio en Pesos</td>
-								<td>29.99</td>
+								<td id="costo-pesos"></td>
 							</tr>
 						</tbody>
 						<!-- <tfoot>
@@ -219,7 +226,7 @@
 	<script src="assets/js/main.js"></script>
 
 	<script>
-		let map; let directionsService; let directionsRenderer, input_1_ac, input_2_ac, input_3_ac, input_4_ac, input_5_ac;
+		let map; let directionsService; let directionsRenderer, input_1_ac, input_2_ac, input_3_ac, input_4_ac, input_5_ac, dolar_oficial, recorrido;
 
 		function initMap() {
 
@@ -258,6 +265,10 @@
 
 
 			directionsRenderer.setMap(map);
+
+			fetch("https://dolarapi.com/v1/dolares/oficial")
+				.then(response => response.json())
+				.then(data => dolar_oficial = data.venta);
 		}
 
 		function agregar_input() { }
@@ -307,6 +318,7 @@
 			var iv5 = document.getElementById("quinta-direccion").value;
 
 			const waypoints = [];
+			recorrido = [];
 
 			// Add non-empty waypoints to the waypoints array
 			if (iv1) {
@@ -338,6 +350,8 @@
 					location: new google.maps.LatLng(i3.lat(), i3.lng()),
 					stopover: true
 				});
+				recorrido.push(input_3_ac.getPlace().address_components[0].long_name);
+
 			} else {
 				console.log("Input 3 is empty");
 			}
@@ -349,6 +363,7 @@
 					location: new google.maps.LatLng(i4.lat(), i4.lng()),
 					stopover: true
 				});
+				recorrido.push(input_4_ac.getPlace().address_components[0].long_name);
 			} else {
 				console.log("Input 4 is empty");
 			}
@@ -360,6 +375,7 @@
 					location: new google.maps.LatLng(i5.lat(), i5.lng()),
 					stopover: true
 				});
+				recorrido.push(input_5_ac.getPlace().address_components[0].long_name);
 			} else {
 				console.log("Input 5 is empty");
 			}
@@ -378,22 +394,24 @@
 					var northernDistance = 0;
 					var southernDistance = 0;
 					var totalDistance = 0;
-					var referenceLatitude = -39;
+					var referenceLatitude = -39; // Your reference latitude
 
 					var legs = response.routes[0].legs;
 					for (var i = 0; i < legs.length; i++) {
 						var leg = legs[i];
-						var startLocation = leg.start_location;
-						var endLocation = leg.end_location;
+						var steps = leg.steps;
 
-						// Check if the midpoint latitude is above or below the reference
-						var midLatitude = (startLocation.lat() + endLocation.lat()) / 2;
-						if (midLatitude > referenceLatitude) {
-							northernDistance += leg.distance.value;
-						} else {
-							southernDistance += leg.distance.value;
+						for (var j = 0; j < steps.length; j++) {
+							var step = steps[j];
+							totalDistance += step.distance.value;
+
+							var midLatitude = (step.start_location.lat() + step.end_location.lat()) / 2;
+							if (midLatitude > referenceLatitude) {
+								northernDistance += step.distance.value;
+							} else {
+								southernDistance += step.distance.value;
+							}
 						}
-						totalDistance += leg.distance.value;
 					}
 
 					// Convert meters to kilometers and update output
@@ -403,20 +421,40 @@
 
 					document.getElementById('output-distancia').innerHTML = Math.ceil(totalDistance) + " km";
 
+					document.getElementById('output-zona-1').innerHTML = Math.ceil(northernDistance) + " km";
+
+					document.getElementById('output-zona-2').innerHTML = Math.ceil(southernDistance) + " km";
+
 					const utilitarioRadio = document.querySelector('input[name="utilitario"]:checked'); // Select checked radio for "fav_language"
 					const explosivoRadio = document.querySelector('input[name="explosivo"]:checked'); // Select checked radio for "explosivo"
 
 
+
+					let recorrido_string = recorrido.join(" -> ");
+
+					document.getElementById('recorrido').innerHTML = recorrido_string;
+
 					let utilitario = utilitarioRadio.value;
 					let explosivo = explosivoRadio.value === "Si";
 
-					console.log(utilitarioRadio);
-					console.log(explosivoRadio);
-					console.log(utilitarioRadio.value);
-					console.log(explosivoRadio.value);
-					console.log("Utilitario: " + utilitario);
-					console.log("Explosivo: " + explosivo);
-					let costo_dolares = formula_costos(utilitario, northernDistance, southernDistance, explosivo)
+					// console.log("Explosivo: " + explosivo);
+
+					let costo_dolares = formula_costos(utilitario, northernDistance, southernDistance, explosivo);
+					let costo_pesos = (dolar_oficial * costo_dolares);
+
+					let choferes = 1;
+
+					if (explosivo) {
+						choferes = 2
+					}
+
+					document.getElementById('choferes').innerHTML = choferes;
+
+					document.getElementById('costo-dolares').innerHTML = Math.ceil(costo_dolares) + " USD + IVA";
+
+					document.getElementById('tipo-de-cambio').innerHTML = dolar_oficial + " pesos";
+
+					document.getElementById('costo-pesos').innerHTML = Math.ceil(costo_pesos) + " USD + IVA";
 
 				} else {
 					console.error("Directions request failed. Status:", status);
