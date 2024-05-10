@@ -245,7 +245,7 @@ function calcular_distancia() {
 
 			document.getElementById('tipo-de-cambio').innerHTML = dolar_oficial + " pesos";
 
-			document.getElementById('costo-pesos').innerHTML = Math.ceil(costo_pesos) + " USD + IVA";
+			document.getElementById('costo-pesos').innerHTML = Math.ceil(costo_pesos) + " Pesos + IVA";
 
 		} else {
 			console.error("Directions request failed. Status:", status);
