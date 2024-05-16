@@ -1,0 +1,26 @@
+.dimension-inputs {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.dimension-inputs label {
+	margin-right: 10px;
+}
+
+.dimension-inputs input {
+	width: 50px;
+	margin-right: 10px;
+}
+
+table {
+	table-layout: fixed;
+	/* This enables fixed-width columns */
+}
+
+th,
+td {
+	width: (100% / 7);
+	/* Adjust number-of-columns as needed */
+	text-align: left;
+}

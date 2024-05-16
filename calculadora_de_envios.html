@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Calculadora de Envios</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/calculadora-de-envios.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="index.html" class="logo">
+					<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">DGM
+						Utilidades</span>
+				</a>
+
+				<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="calculadora_de_viajes.html">Calculadora de Viajes Larga Distancia</a></li>
+				<li><a href="descargas.html">Archivos de Uso Frecuente</a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+
+				<h1> Calculadora de Envios</h1>
+
+				<select id="pais">
+				</select>
+				<select id="clase"> </select>
+				<br>
+				<div class="dimension-inputs">
+					<label for="alto">Alto (cm):</label>
+					<input type="number" id="alto" name="alto" min="0" required>
+					<label for="largo">Largo (cm):</label>
+					<input type="number" id="largo" name="largo" min="0" required>
+					<label for="ancho">Ancho (cm):</label>
+					<input type="number" id="ancho" name="ancho" min="0" required>
+					<label for="pesobruto">Peso Bruto (kg):</label>
+					<input type="number" id="pesobruto" name="pesobruto" min="0" required>
+				</div>
+				<br>
+				<button id="agregar-tabla">Agregar</button>
+				<br>
+				<br>
+				<div class="table-wrapper">
+					<table class="alt">
+						<thead>
+							<th>Clase</th>
+							<th>Pais</th>
+							<th>Alto</th>
+							<th>Ancho</th>
+							<th>Largo</th>
+							<th>Peso Bruto</th>
+							<th>Peso Volumetrico</th>
+						</thead>
+						<tbody>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+
+						</tbody>
+						<!-- <tfoot>
+							<tr>
+								<td colspan="1"></td>
+								<td>100.00</td>
+							</tr>
+						</tfoot> -->
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="copyright">
+					<li>&copy; All rights reserved</li>
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/calculadora_de_envios.js"></script>
+
+</body>
+
+</html>
