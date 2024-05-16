@@ -1,0 +1,22 @@
+.download-container p {
+	/* Your styles for the p elements here */
+	margin-bottom: 0px;
+	line-height: 1.5em;
+}
+
+.download-container p:first-child {
+	/* Your styles for the p elements here */
+	margin-top: 45px;
+	line-height: 1.5em;
+}
+
+.download-links-container {
+	/* display: inline-block; */
+	padding-top: 0.4em !important;
+	/* font-weight: bold; */
+	line-height: 1.8em;
+}
+
+h3 {
+	margin-top: 42px;
+}

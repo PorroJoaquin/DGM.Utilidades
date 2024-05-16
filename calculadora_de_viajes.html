@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Calculadora de Viajes</title>
+	<title>Calculadora de Viajes Larga Distancia</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
@@ -46,7 +46,7 @@
 			<h2>Menu</h2>
 			<ul>
 				<li><a href="index.html">Home</a></li>
-				<li><a href="calculadora_de_viajes.html">Calculadora de Viajes</a></li>
+				<li><a href="calculadora_de_viajes.html">Calculadora de Viajes Larga Distancia</a></li>
 				<li><a href="descargas.html">Archivos de Uso Frecuente</a></li>
 			</ul>
 		</nav>
@@ -54,28 +54,21 @@
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
-				<h1> Calculadora de Viajes</h1>
-				<!-- <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque
-					venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor
-					sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu
-					massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris.
-					Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis,
-					hendrerit tristique.</p> -->
-				<!-- <br> -->
+				<h1> Calculadora de Viajes de Larga Distancia</h1>
 			</div>
-			<section id="one" class="wrapper style2">
 
+			<section id="one" class="wrapper style2">
 				<br>
-				<h6 class="subhead">Origen </h6>
-				<br>
+				<h6 class="subhead">Inicio</h6>
+				<!-- <br> -->
 				<div id="direccion-inputs">
 					<input value="Fitz Roy 201, Buenos Aires, Argentina" class="direccion" id="primer-direccion"
 						type="text" placeholder="Ingresá una Direccion">
 				</div>
 
 				<br>
-				<h6 class="subhead">Destino </h6>
-				<br>
+				<h6 class="subhead">Fin</h6>
+				<!-- <br> -->
 				<div id="direccion-inputs">
 					<input value="Fitz Roy 201, Buenos Aires, Argentina" class="direccion" id="segunda-direccion"
 						type="text" placeholder="Ingresá una Direccion">
@@ -83,38 +76,41 @@
 
 				<br>
 				<h6 class="subhead">Paradas </h6>
-				<br>
+				<!-- <br> -->
 				<div id="direccion-inputs">
-					<input class="direccion" id="tercera-direccion" type="text" placeholder="Ingresá una Direccion">
+					<input class="direccion" id="tercera-direccion" type="text"
+						placeholder="Ingrese una direccion de retiro (pick up)">
 
-					<input class="direccion" id="cuarta-direccion" type="text" placeholder="Ingresá una Direccion">
+					<input class="direccion" id="cuarta-direccion" type="text"
+						placeholder="Ingrese una direccion de retiro o entrega">
 
-					<input class="direccion" id="quinta-direccion" type="text" placeholder="Ingresá una Direccion">
-				</div>
-
-				<br>
-				<h6 class="subhead">Utilitario</h6>
-				<br>
-				<div class="checklist">
-					<input type="radio" id="Chico" name="utilitario" value="C" checked>
-					<label for="Chico">Pequeño</label><br>
-
-					<input type="radio" id="Mediano" name="utilitario" value="M">
-					<label for="Mediano">Mediano</label><br>
-
+					<input class="direccion" id="quinta-direccion" type="text"
+						placeholder="Ingrese una direccion de entrega">
 				</div>
 				<br>
-				<h6 class="subhead">Carga Explosiva</h6>
-				<br>
-				<div class="checklist">
-					<input type="radio" id="c1" name="explosivo" value="No" checked>
-					<label for="c1">No </label><br>
+				<div class="horizontal-div">
+					<div class="checklist-container">
+						<h6 class="subhead">Utilitario</h6>
+						<br>
+						<div class="checklist">
+							<input type="radio" id="Chico" name="utilitario" value="C" checked>
+							<label for="Chico">Pequeño</label>
+							<input type="radio" id="Mediano" name="utilitario" value="M">
+							<label for="Mediano">Mediano</label>
+						</div>
+					</div>
 
-					<input type="radio" id="c2" name="explosivo" value="Si">
-					<label for="c2">Si </label><br>
+					<div class="checklist-container">
+						<h6 class="subhead">Carga Explosiva</h6>
+						<br>
+						<div class="checklist">
+							<input type="radio" id="c1" name="explosivo" value="No" checked>
+							<label for="c1">No </label>
+							<input type="radio" id="c2" name="explosivo" value="Si">
+							<label for="c2">Si </label>
+						</div>
+					</div>
 				</div>
-				<br>
-				<br>
 				<button id="calcular-distancia" onclick="calcular_distancia()">Calcular</button>
 				<br><br><br>
 				<div id="map"></div>
