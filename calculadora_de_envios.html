@@ -57,17 +57,15 @@
 
 				<h1> Calculadora de Envios</h1>
 
-				<select id="pais">
-				</select>
-				<select id="clase"> </select>
-				<br>
+				<!-- <select id="clase"> </select>
+					<br> -->
 				<div class="dimension-inputs">
-					<label for="alto">Alto (cm):</label>
-					<input type="number" id="alto" name="alto" min="0" required>
 					<label for="largo">Largo (cm):</label>
 					<input type="number" id="largo" name="largo" min="0" required>
 					<label for="ancho">Ancho (cm):</label>
 					<input type="number" id="ancho" name="ancho" min="0" required>
+					<label for="alto">Alto (cm):</label>
+					<input type="number" id="alto" name="alto" min="0" required>
 					<label for="pesobruto">Peso Bruto (kg):</label>
 					<input type="number" id="pesobruto" name="pesobruto" min="0" required>
 				</div>
@@ -75,20 +73,21 @@
 				<button id="agregar-tabla">Agregar</button>
 				<br>
 				<br>
+
 				<div class="table-wrapper">
 					<table class="alt">
 						<thead>
-							<th>Clase</th>
-							<th>Pais</th>
-							<th>Alto</th>
-							<th>Ancho</th>
+							<!-- <th>Clase</th>
+							<th>Pais</th> -->
 							<th>Largo</th>
+							<th>Ancho</th>
+							<th>Alto</th>
 							<th>Peso Bruto</th>
 							<th>Peso Volumetrico</th>
+							<th>Peso Facturable</th>
 						</thead>
 						<tbody>
 							<tr>
-								<td></td>
 								<td></td>
 								<td></td>
 								<td></td>
@@ -105,7 +104,10 @@
 							</tr>
 						</tfoot> -->
 					</table>
+
 				</div>
+				<select id="pais">
+				</select>
 			</div>
 		</div>
 

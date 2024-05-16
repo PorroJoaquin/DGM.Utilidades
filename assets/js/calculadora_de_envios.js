@@ -170,68 +170,63 @@ let tipos = {
 
 }
 
-const tipo = document.getElementById("clase");
+// const tipo = document.getElementById("clase");
 
-// Loop and add options with class "class1"
-for (let i = 1; i <= 9; i++) {
-	const optionElement = document.createElement("option");
-	optionElement.value = `Clase ${i}`; // Set value as "class1", "class2", etc.
-	optionElement.textContent = `Clase ${i}`; // Set text content as "class1", "class2", etc.
-	// optionElement.classList.add("class1"); // Add class "class1" to all options
-	tipo.appendChild(optionElement);
-}
+// // Loop and add options with class "class1"
+// for (let i = 1; i <= 9; i++) {
+// 	const optionElement = document.createElement("option");
+// 	optionElement.value = `Clase ${i}`; // Set value as "class1", "class2", etc.
+// 	optionElement.textContent = `Clase ${i}`; // Set text content as "class1", "class2", etc.
+// 	// optionElement.classList.add("class1"); // Add class "class1" to all options
+// 	tipo.appendChild(optionElement);
+// }
 
 const addButton = document.getElementById("agregar-tabla");
 const tableBody = document.querySelector(".table-wrapper tbody");
 
 
 addButton.addEventListener("click", function () {
-	const selectedClass = document.getElementById("clase").value.trim();
-	const selectedCountry = document.getElementById("pais").value.trim();
 	const alto = parseFloat(document.getElementById("alto").value);
 	const largo = parseFloat(document.getElementById("largo").value);
 	const ancho = parseFloat(document.getElementById("ancho").value);
 	const pesoBruto = parseFloat(document.getElementById("pesobruto").value);
 
 	// Exit the function if any input is empty or NaN
-	if (selectedClass === "" || selectedCountry === "" || isNaN(alto) || isNaN(largo) || isNaN(ancho) || isNaN(pesoBruto)) {
+	if (isNaN(alto) || isNaN(largo) || isNaN(ancho) || isNaN(pesoBruto)) {
 		return;
 	}
 
 	// Calculate volumetric weight (optional, adjust formula if needed)
 	const volumetricWeight = (largo * ancho * alto) / 5000;
 
+	const chargeableWeight = volumetricWeight > pesoBruto ? volumetricWeight : pesoBruto;
+
 	// Create a new table row element
 	const newRow = document.createElement("tr");
-
-	// Create and add table cells with input values
-	const classCell = document.createElement("td");
-	classCell.textContent = selectedClass;
-	newRow.appendChild(classCell);
-
-	const countryCell = document.createElement("td");
-	countryCell.textContent = selectedCountry;
-	newRow.appendChild(countryCell);
-
-	const altoCell = document.createElement("td");
-	altoCell.textContent = alto;
-	newRow.appendChild(altoCell);
-
-	const anchoCell = document.createElement("td");
-	anchoCell.textContent = ancho;
-	newRow.appendChild(anchoCell);
 
 	const largoCell = document.createElement("td");
 	largoCell.textContent = largo;
 	newRow.appendChild(largoCell);
 
+	const anchoCell = document.createElement("td");
+	anchoCell.textContent = ancho;
+	newRow.appendChild(anchoCell);
+
+	const altoCell = document.createElement("td");
+	altoCell.textContent = alto;
+	newRow.appendChild(altoCell);
+
 	const pesoBrutoCell = document.createElement("td");
-	pesoBrutoCell.textContent = pesoBruto;
+	pesoBrutoCell.textContent = pesoBruto.toFixed(2);
 	newRow.appendChild(pesoBrutoCell);
 
 	const pesoVolumetricoCell = document.createElement("td");
 	pesoVolumetricoCell.textContent = volumetricWeight.toFixed(2); // Format to 2 decimal places
 	newRow.appendChild(pesoVolumetricoCell);
+
+	const pesoFacturableCell = document.createElement("td");
+	pesoFacturableCell.textContent = chargeableWeight.toFixed(2);
+	newRow.appendChild(pesoFacturableCell);
 
 	// Before appending, check if any existing row is empty
 	const existingRows = tableBody.querySelectorAll("tr");
@@ -251,9 +246,9 @@ addButton.addEventListener("click", function () {
 
 	// Clear input fields (optional)
 	//   document.getElementById("pais").value = "";
-	document.getElementById("clase").value = "";
-	document.getElementById("alto").value = "";
+	// document.getElementById("clase").value = "";
 	document.getElementById("largo").value = "";
 	document.getElementById("ancho").value = "";
+	document.getElementById("alto").value = "";
 	document.getElementById("pesobruto").value = "";
 });
