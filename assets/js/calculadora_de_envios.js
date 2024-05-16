@@ -181,6 +181,23 @@ let tipos = {
 // 	tipo.appendChild(optionElement);
 // }
 
+// Function to get the sum of the last column
+function getSumOfLastColumn(table) {
+	const rows = table.querySelectorAll("tr"); // Get all table rows
+	let sum = 0;
+
+	// Loop through rows starting from the second one (skip header)
+	for (let i = 0; i < rows.length; i++) {
+		const cells = rows[i].querySelectorAll("td"); // Get all cells in the current row
+
+		// Assuming the last cell (cells.length - 1) contains the value
+		const value = parseFloat(cells[cells.length - 1].textContent); // Parse the value to a number
+		sum += value;
+	}
+
+	return sum;
+}
+
 const addButton = document.getElementById("agregar-tabla");
 const tableBody = document.querySelector(".table-wrapper tbody");
 
@@ -190,6 +207,7 @@ addButton.addEventListener("click", function () {
 	const largo = parseFloat(document.getElementById("largo").value);
 	const ancho = parseFloat(document.getElementById("ancho").value);
 	const pesoBruto = parseFloat(document.getElementById("pesobruto").value);
+	const total = document.getElementById("pesoFacturableTotal");
 
 	// Exit the function if any input is empty or NaN
 	if (isNaN(alto) || isNaN(largo) || isNaN(ancho) || isNaN(pesoBruto)) {
@@ -221,7 +239,7 @@ addButton.addEventListener("click", function () {
 	newRow.appendChild(pesoBrutoCell);
 
 	const pesoVolumetricoCell = document.createElement("td");
-	pesoVolumetricoCell.textContent = volumetricWeight.toFixed(2); // Format to 2 decimal places
+	pesoVolumetricoCell.textContent = volumetricWeight.toFixed(2);
 	newRow.appendChild(pesoVolumetricoCell);
 
 	const pesoFacturableCell = document.createElement("td");
@@ -242,6 +260,7 @@ addButton.addEventListener("click", function () {
 	// Only append the new row if there are no empty rows or the new row is not empty
 	if (!hasEmptyRow || newRow.textContent.trim() !== "") {
 		tableBody.appendChild(newRow);
+		total.textContent = `Total: ${getSumOfLastColumn(tableBody)}`;
 	}
 
 	// Clear input fields (optional)
