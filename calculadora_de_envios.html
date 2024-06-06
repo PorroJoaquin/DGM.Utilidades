@@ -88,7 +88,7 @@
 							<th>Peso Volumetrico</th>
 							<th>Peso Facturable</th>
 						</thead>
-						<tbody>
+						<tbody id="tabla1">
 							<tr>
 								<td></td>
 								<td></td>
@@ -110,6 +110,29 @@
 				</div>
 				<select id="pais">
 				</select>
+
+				<br>
+				<button id="calcular-tabla">Calcular</button>
+				<br><br><br>
+				<div class="table-wrapper">
+					<table class="alt">
+						<thead>
+							<th> </th>
+							<th>Costo Total</th>
+						</thead>
+						<tbody id="tabla2">
+							<tr>
+								<td>DHL</td>
+								<td id="costo_dhl"></td>
+							</tr>
+							<tr>
+								<td>FEDEX</td>
+								<td id="costo_fedex"></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
 			</div>
 		</div>
 
