@@ -1039,7 +1039,7 @@ function calculate_cost_fedex(pais, peso_facturable) {
 		costo_final += (roundToOne(peso_facturable - 70)) * const_71_inf;
 	}
 
-	return costo_final;
+	return `${costo_final} USD + IVA`;
 }
 
 function calculate_cost_dhl(pais, peso_facturable) {
@@ -1129,11 +1129,12 @@ function calculate_cost_dhl(pais, peso_facturable) {
 		costo_final += (roundToOne(peso_facturable - 300)) * const_300_3000;
 	}
 
-	return costo_final;
+	return `${costo_final} USD + IVA`;
 }
 calculateButton.addEventListener("click", function () {
 	let costo_output_fedex = document.getElementById("costo_fedex");
 	let costo_output_dhl = document.getElementById("costo_dhl");
+	let costo_output_total_tag = document.getElementById("costo_total_tag");
 
 	let pais = selectElement.value;
 
@@ -1143,4 +1144,5 @@ calculateButton.addEventListener("click", function () {
 	// console.log(selectElement.value);
 	costo_output_dhl.innerHTML = costo_dhl;
 	costo_output_fedex.innerHTML = costo_fedex;
+	costo_output_total_tag.innerHTML = `Costo Total  (con peso facturable: ${totalNumber} kg)`
 })
