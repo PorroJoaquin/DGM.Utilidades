@@ -1,17 +1,17 @@
 <!DOCTYPE HTML>
-<!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 
 <head>
-	<title>DGM Utilidades</title>
+	<title>Calculadora de Viajes Larga Distancia</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/calculadora-de-viajes.css">
+
+
 	<link rel="icon" href="images/logo.svg" type="image/svg+xml">
+	<script defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdzoq2lq-NbzjAug4H2uVgTGnogG1c2F4&callback=initMap&libraries=places"></script>
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
@@ -46,162 +46,155 @@
 			<h2>Menu</h2>
 			<ul>
 				<li><a href="index.html">Home</a></li>
-				<li><a href="calculadora_de_viajes.html">Calculadora de Viajes Larga Distancia</a></li>
-				<li><a href="fletes_currier.html">Fletes Currier</a></li>
-				<li><a href="descargas.html">Archivos de Uso Frecuente</a></li>
+				<!-- <li><a href="calculadora_de_viajes.html">Calculadora de Viajes Larga Distancia</a></li> -->
+				<!-- <li><a href="fletes_currier.html">Fletes Currier</a></li> -->
+				<!-- <li><a href="descargas.html">Archivos de Uso Frecuente</a></li> -->
 			</ul>
 		</nav>
 
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
-				<header>
-					<h1>DGM Utilidades, una pagina de herramientas para problemas especificos de DGM.
-					</h1>
-					<p>Haz click en alguno de los cuadros de abajo para ver una herramienta.</p>
-				</header>
-				<section class="tiles">
-					<article class="style1">
-						<span class="image">
-							<img src="images/pic01.jpg" alt="" />
-						</span>
-						<a href="calculadora_de_viajes.html">
-							<h2>Calculadora de Viajes de Larga Distancia</h2>
-							<div class="content">
-								<p>Calculadora de viajes por carretera en Argentina</p>
-							</div>
-						</a>
-					</article>
-					<article class="style3">
-						<span class="image">
-							<img src="images/pic03.jpg" alt="" />
-						</span>
-						<a href="fletes_currier.html">
-							<h2>Fletes Currier</h2>
-							<div class="content">
-								<p>Calculadora para fletes currier</p>
-							</div>
-						</a>
-					</article>
-					<article class="style2">
-						<span class="image">
-							<img src="images/pic02.jpg" alt="" />
-						</span>
-						<a href="descargas.html">
-							<h2>Archivos</h2>
-							<div class="content">
-								<p>Archivos de Uso Frecuente</p>
-							</div>
-						</a>
-					</article>
-					<!-- <article class="style4">
-						<span class="image">
-							<img src="images/pic04.jpg" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Tempus</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style5">
-						<span class="image">
-							<img src="images/pic05.jpg" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Aliquam</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style6">
-						<span class="image">
-							<img src="images/pic06.jpg" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Veroeros</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style2">
-						<span class="image">
-							<img src="images/pic07.jpg" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Ipsum</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style3">
-						<span class="image">
-							<img src="images/pic08.jpg" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Dolor</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style1">
-						<span class="image">
-							<img src="images/pic09.jpg" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Nullam</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style5">
-						<span class="image">
-							<img src="images/pic10.jpg" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Ultricies</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style6">
-						<span class="image">
-							<img src="images/pic11.jpg" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Dictum</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article>
-					<article class="style4">
-						<span class="image">
-							<img src="images/pic12.jpg" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Pretium</h2>
-							<div class="content">
-								<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-							</div>
-						</a>
-					</article> -->
-				</section>
+				<h1> Calculadora de Viajes de Larga Distancia</h1>
 			</div>
+
+			<section id="one" class="wrapper style2">
+				<br>
+				<h6 class="subhead">Inicio</h6>
+				<!-- <br> -->
+				<div id="direccion-inputs">
+					<input value="Fitz Roy 201, Buenos Aires, Argentina" class="direccion" id="primer-direccion"
+						type="text" placeholder="Ingresá una Direccion">
+				</div>
+
+				<br>
+				<h6 class="subhead">Fin</h6>
+				<!-- <br> -->
+				<div id="direccion-inputs">
+					<input value="Fitz Roy 201, Buenos Aires, Argentina" class="direccion" id="segunda-direccion"
+						type="text" placeholder="Ingresá una Direccion">
+				</div>
+
+				<br>
+				<h6 class="subhead">Paradas </h6>
+				<!-- <br> -->
+				<div id="direccion-inputs">
+					<input class="direccion" id="tercera-direccion" type="text"
+						placeholder="Ingrese una direccion de retiro (pick up)">
+
+					<input class="direccion" id="cuarta-direccion" type="text"
+						placeholder="Ingrese una direccion de retiro o entrega">
+
+					<input class="direccion" id="quinta-direccion" type="text"
+						placeholder="Ingrese una direccion de entrega">
+				</div>
+				<br>
+				<div class="horizontal-div">
+					<div class="checklist-container">
+						<h6 class="subhead">Utilitario</h6>
+						<br>
+						<div class="checklist">
+							<input type="radio" id="Chico" name="utilitario" value="C" checked>
+							<label for="Chico">Pequeño</label>
+							<input type="radio" id="Mediano" name="utilitario" value="M">
+							<label for="Mediano">Mediano</label>
+						</div>
+					</div>
+
+					<div class="checklist-container">
+						<h6 class="subhead">Carga Explosiva</h6>
+						<br>
+						<div class="checklist">
+							<input type="radio" id="c1" name="explosivo" value="No" checked>
+							<label for="c1">No </label>
+							<input type="radio" id="c2" name="explosivo" value="Si">
+							<label for="c2">Si </label>
+						</div>
+					</div>
+				</div>
+				<button id="calcular-distancia" onclick="calcular_distancia()">Calcular</button>
+				<br><br><br>
+				<div id="map"></div>
+				<div> </div>
+				<br>
+				<div class="table-wrapper">
+					<table class="alt">
+						<!-- <thead>
+							<th colspan="2">Resultado
+							</th>
+						</thead> -->
+						<tbody>
+							<tr>
+								<td>Hora</td>
+								<td id="hora"></td>
+							</tr>
+							<tr>
+								<td>Distancia Total</td>
+								<td id="output-distancia"></td>
+							</tr>
+							<tr>
+								<td>Distancia Zona 1</td>
+								<td id="output-zona-1"></td>
+							</tr>
+							<tr>
+								<td>Distancia Zona 2</td>
+								<td id="output-zona-2"></td>
+							</tr>
+							<tr>
+								<td>Recorrido</td>
+								<td id="recorrido"></td>
+							</tr>
+							<tr>
+								<td>Choferes</td>
+								<td id="choferes"></td>
+							</tr>
+							<tr>
+								<td>Precio en Dolares</td>
+								<td id="costo-dolares"></td>
+							</tr>
+							<tr>
+								<td>Tipo de Cambio</td>
+								<td id="tipo-de-cambio"></td>
+							</tr>
+							<tr>
+								<td>Precio en Pesos</td>
+								<td id="costo-pesos"></td>
+							</tr>
+						</tbody>
+						<!-- <tfoot>
+							<tr>
+								<td colspan="1"></td>
+								<td>100.00</td>
+							</tr>
+						</tfoot> -->
+					</table>
+				</div>
+			</section>
 		</div>
 
 		<!-- Footer -->
 		<footer id="footer">
 			<div class="inner">
-
 				<!-- <section>
+					<h2>Get in touch</h2>
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field half">
+								<input type="text" name="name" id="name" placeholder="Name" />
+							</div>
+							<div class="field half">
+								<input type="email" name="email" id="email" placeholder="Email" />
+							</div>
+							<div class="field">
+								<textarea name="message" id="message" placeholder="Message"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send" class="primary" /></li>
+						</ul>
+					</form>
+				</section>
+				<section>
 					<h2>Follow</h2>
 					<ul class="icons">
 						<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a>
@@ -232,6 +225,9 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+
+	<!-- Funcionalidad -->
+	<script src="assets/js/calculadora_de_viajes.js"> </script>
 
 </body>
 
